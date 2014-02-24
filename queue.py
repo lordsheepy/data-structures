@@ -3,13 +3,40 @@ class Queue(object):
 
     def __init__(self):
         self.head = None
+        self.tail = None
         self.length = 0
 
     def enqueue(self, value):
-        pass
+        q = QueueObject(value)
+        if not self.head:
+            self.head = q
+            self.length += 1
+            return
+        if not self.tail:
+            self.tail = q
+            self.head.next = q
+            self.length += 1
+            return
+        else:
+            self.tail.next = q
+            self.Tail = q
+            self.length += 1
+            return
 
     def dequeue(self):
-        pass
+        if self.head:
+            response, self.head = self.head.value, self.head.next
+            self.length -= 1
+            return response
+        else:
+            raise IndexError
 
     def length(self):
-        pass
+        return self.length
+
+
+class QueueObject(object):
+
+    def __init__(self, value):
+        self.value = value
+        self.next = None

@@ -13,7 +13,7 @@ class EnqueueTests(unittest.TestCase):
         for i in self.testloop:
             self.qtest = queue.Queue()
             self.qtest.enqueue(i)
-            self.assertEqual(queue.head, i)
+            self.assertEqual(self.qtest.head.value, i)
 
 
 class DequeueTests(unittest.TestCase):
@@ -28,13 +28,13 @@ class DequeueTests(unittest.TestCase):
 
     def test_dequeue_head(self):
         self.qtest.dequeue()
-        self.assertEqual(self.qtest.head, 6)
+        self.assertEqual(self.qtest.head.value, 6)
 
     def test_dequeue_empty(self):
         self.qtest.dequeue()
         self.qtest.dequeue()
         self.qtest.dequeue()
-        self.assertRaises(self.qtest.dequeue())
+        self.assertRaises(self.qtest.dequeue)
 
 
 class LengthTests(unittest.TestCase):
