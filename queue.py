@@ -10,18 +10,14 @@ class Queue(object):
         q = QueueObject(value)
         if not self.head:
             self.head = q
-            self.length += 1
-            return
-        if not self.tail:
+        elif not self.tail:
             self.tail = q
             self.head.next = q
-            self.length += 1
-            return
         else:
             self.tail.next = q
-            self.Tail = q
-            self.length += 1
-            return
+            self.tail = q
+        self.length += 1
+        return
 
     def dequeue(self):
         if self.head:
