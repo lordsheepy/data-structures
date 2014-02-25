@@ -20,6 +20,8 @@ class Queue(object):
         return
 
     def dequeue(self):
+        if self.head is self.tail:
+            self.tail = None
         if self.head:
             response, self.head = self.head.value, self.head.next
             self.length -= 1

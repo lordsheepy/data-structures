@@ -36,6 +36,12 @@ class DequeueTests(unittest.TestCase):
         self.qtest.dequeue()
         self.assertRaises(self.qtest.dequeue)
 
+    def test_dequeue_value(self):
+        self.qtest.dequeue()
+        self.qtest.dequeue()
+        self.qtest.dequeue()
+        self.assertEqual(self.qtest.tail, None)
+
 
 class LengthTests(unittest.TestCase):
 
