@@ -18,7 +18,7 @@ class HashTable(object):
     def get(self, key):
         hkey = HashTable.myhash(key)
         for i in self.buckets[hkey]:
-            if key in i:
+            if key in i[0]:
                 return i[1]
         raise IndexError
 
