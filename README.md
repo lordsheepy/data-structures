@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/lordsheepy/data-structures.png?branch=master)](https://travis-ci.org/lordsheepy/data-structures)
 data-structures
 ===============
 
