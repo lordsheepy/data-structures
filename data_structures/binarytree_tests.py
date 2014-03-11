@@ -31,13 +31,21 @@ class BinaryTreeTests(unittest.TestCase):
         self.assertEqual(self.tree.depth(), 4)
 
     def test_balance_pos(self):
-        pass
+        self.tree.insert(10)
+        self.tree.insert(8)
+        self.tree.insert(9)
+        self.assertEqual(self.tree.balance(), 3)
 
     def test_balance_neg(self):
-        pass
+        self.tree.insert(1)
+        self.tree.insert(2)
+        self.tree.insert(9)
+        self.assertEqual(self.tree.balance(), -1)
 
     def test_balance_even(self):
-        pass
+        self.tree.insert(10)
+        self.tree.insert(4)
+        self.assertEqual(self.tree.balance(), 0)
 
 
 class EmptyTests(unittest.TestCase):
@@ -52,7 +60,7 @@ class EmptyTests(unittest.TestCase):
         self.assertEqual(self.tree.depth(), 0)
 
     def test_empty_balance(self):
-        pass
+        self.assertEqual(self.tree.balance(), 0)
 
 
 if __name__ == '__main__':

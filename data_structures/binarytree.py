@@ -61,3 +61,14 @@ class BinaryTree(object):
         except:
             b = 0
         return max(a, b) + 1
+
+    def balance(self):
+        try:
+            a = self.greater.depth()
+        except:
+            a = 0
+        try:
+            b = self.lesser.depth()
+        except:
+            b = 0
+        return a - b
