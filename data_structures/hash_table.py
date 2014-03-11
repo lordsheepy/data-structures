@@ -16,14 +16,14 @@ class HashTable(object):
         return hkey % self.maxsize
 
     def get(self, key):
-        hkey = HashTable.myhash(key)
+        hkey = self.myhash(key)
         for i in self.buckets[hkey]:
             if key in i[0]:
                 return i[1]
         raise IndexError
 
     def set(self, key, value):
-        hkey = HashTable.myhash(key)
+        hkey = self.myhash(key)
         try:
             self.buckets[hkey].add((str(key), value))
         except TypeError:
