@@ -13,15 +13,15 @@ class BinaryTreeTests(unittest.TestCase):
 
     def test_reinsert(self):
         self.tree.insert(7)
-        self.assertEqual(self.tree.size(), 7)
+        self.assertEqual(self.tree.size(), 1)
 
     def test_contains_false(self):
         self.assertFalse(self.tree.contains(6))
 
     def test_size(self):
-        self.assertEqual(self.tree.size(), 7)
+        self.assertEqual(self.tree.size(), 1)
         self.tree.insert(6)
-        self.assertEqual(self.tree.size(), 13)
+        self.assertEqual(self.tree.size(), 2)
 
     def test_depth(self):
         self.tree.insert(8)

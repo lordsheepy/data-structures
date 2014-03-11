@@ -41,9 +41,9 @@ class BinaryTree(object):
 
     def size(self, total=0):
         """Returns total of all values within binary tree"""
-        try:
-            total += self.value
-        except TypeError:
+        if self.value:
+            total += 1
+        else:
             return 0
 
         if self.lesser:
@@ -98,7 +98,7 @@ class BinaryTree(object):
         if self.right is not None:
             yield "\t%s -> %s;" % (self.data, self.right.data)
             for i in self.right._get_dot():
-                yield i
+                yield
         elif self.left is not None:
             r = random.randint(0, 1e9)
             yield "\tnull%s [shape=point];" % r
