@@ -29,6 +29,7 @@ class BinaryTree(object):
 
     def contains(self, value):
         """Determine whether value is contained in binary tree"""
+        #refactor opportunities
         try:
             if value == self.value:
                 return True
@@ -41,6 +42,7 @@ class BinaryTree(object):
 
     def size(self, total=0):
         """Returns total of all values within binary tree"""
+        # doesn't need total at all
         if self.value:
             total += 1
         else:
@@ -53,27 +55,15 @@ class BinaryTree(object):
         return total
 
     def depth(self):
-        if not self.value:
+        if self.value is None:
             return 0
-        try:
-            a = self.greater.depth()
-        except:
-            a = 0
-        try:
-            b = self.lesser.depth()
-        except:
-            b = 0
+        a = self.greater.depth() if self.greater else 0
+        b = self.lesser.depth() if self.lesser else 0
         return max(a, b) + 1
 
     def balance(self):
-        try:
-            a = self.greater.depth()
-        except:
-            a = 0
-        try:
-            b = self.lesser.depth()
-        except:
-            b = 0
+        a = self.greater.depth() if self.greater else 0
+        b = self.lesser.depth() if self.lesser else 0
         return a - b
 
     def get_dot(self):
@@ -103,3 +93,6 @@ class BinaryTree(object):
             r = random.randint(0, 1e9)
             yield "\tnull%s [shape=point];" % r
             yield "\t%s -> null%s;" % (self.data, r)
+
+if __name__ == '__main__':
+    pass

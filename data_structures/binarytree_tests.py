@@ -1,5 +1,5 @@
 import unittest
-from data_structures.binarytree import BinaryTree as Tree
+from binarytree import BinaryTree as Tree
 
 
 class BinaryTreeTests(unittest.TestCase):
@@ -61,26 +61,6 @@ class EmptyTests(unittest.TestCase):
 
     def test_empty_balance(self):
         self.assertEqual(self.tree.balance(), 0)
-
-
-class TraversalTests(unittest.TestCase):
-
-    def setUp(self):
-        self.tree = Tree(10)
-        for i in [5, 15, 4, 6, 14, 16]:
-            self.tree.insert(i)
-
-    def test_traversal1(self):
-        self.assertEqual(self.tree.func1(), [4, 6, 5, 14, 16, 15, 10])
-
-    def test_traversal2(self):
-        self.assertEqual(self.tree.func2(), [4, 5, 6, 10, 14, 15, 16])
-
-    def test_traversal3(self):
-        self.assertEqual(self.tree.func3(), [10, 5, 4, 6, 15, 14, 16])
-
-    def test_depth_first(self):
-        self.assertEqual(self.tree.depth_first, [4, 6, 14, 16, 5, 15, 10])
 
 
 if __name__ == '__main__':
