@@ -70,17 +70,29 @@ class TraversalTests(unittest.TestCase):
         for i in [5, 15, 4, 6, 14, 16]:
             self.tree.insert(i)
 
-    def test_traversal1(self):
-        self.assertEqual(self.tree.func1(), [4, 6, 5, 14, 16, 15, 10])
+    def test_in_order(self):
+        outp = []
+        for i in self.tree.in_order():
+            outp.append(i)
+        self.assertEqual(outp, [4, 5, 6, 10, 14, 15, 16])
 
-    def test_traversal2(self):
-        self.assertEqual(self.tree.func2(), [4, 5, 6, 10, 14, 15, 16])
+    def test_pre_order(self):
+        outp = []
+        for i in self.tree.pre_order():
+            outp.append(i)
+        self.assertEqual(outp, [4, 6, 5, 14, 16, 15, 10])
 
-    def test_traversal3(self):
-        self.assertEqual(self.tree.func3(), [10, 5, 4, 6, 15, 14, 16])
+    def test_post_order(self):
+        outp = []
+        for i in self.tree.post_order():
+            outp.append(i)
+        self.assertEqual(outp, [10, 5, 4, 6, 15, 14, 16])
 
-    def test_depth_first(self):
-        self.assertEqual(self.tree.depth_first, [4, 6, 14, 16, 5, 15, 10])
+    def test_breadth_first(self):
+        outp = []
+        for i in self.tree.breadth_first():
+            outp.append(i)
+        self.assertEqual(outp, [10, 5, 15, 4, 6, 14, 16])
 
 
 if __name__ == '__main__':

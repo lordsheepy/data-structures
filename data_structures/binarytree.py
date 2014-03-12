@@ -1,4 +1,5 @@
 import random
+from collections import deque
 
 
 class BinaryTree(object):
@@ -66,33 +67,74 @@ class BinaryTree(object):
         b = self.lesser.depth() if self.lesser else 0
         return a - b
 
+    def in_order(self):
+        if self.lesser is not None:
+            for i in self.lesser.in_order():
+                    yield i
+        if self.value is not None:
+            yield self.value
+        if self.greater is not None:
+            for i in self.greater.in_order():
+                    yield i
+
+    def post_order(self):
+        if self.value is not None:
+            yield self.value
+        if self.lesser is not None:
+            for i in self.lesser.post_order():
+                    yield i
+        if self.greater is not None:
+            for i in self.greater.post_order():
+                    yield i
+
+    def pre_order(self):
+        if self.lesser is not None:
+            for i in self.lesser.pre_order():
+                    yield i
+        if self.greater is not None:
+            for i in self.greater.pre_order():
+                    yield i
+        if self.value is not None:
+            yield self.value
+
+    def breadth_first(self):
+        inp = deque()
+        inp.append(self)
+        while len(inp) > 0:
+            outp = inp.popleft()
+            yield outp.value
+            if outp.lesser is not None:
+                inp.append(outp.lesser)
+            if outp.greater is not None:
+                inp.append(outp.greater)
+
     def get_dot(self):
         """return the tree with root 'self' as a dot graph for visualization"""
-        return "digraph G{\n%s}" % ("" if self.data is None else (
+        return "digraph G{\n%s}" % ("" if self.value is None else (
             "\t%s;\n%s\n" % (
-                self.data,
+                self.value,
                 "\n".join(self._get_dot())
             )
         ))
 
     def _get_dot(self):
         """recursively prepare a dot graph entry for this node."""
-        if self.left is not None:
-            yield "\t%s -> %s;" % (self.data, self.left.data)
-            for i in self.left._get_dot():
+        if self.lesser is not None:
+            yield "\t%s -> %s;" % (self.value, self.lesser.value)
+            for i in self.lesser._get_dot():
                 yield i
-        elif self.right is not None:
+        elif self.greater is not None:
             r = random.randint(0, 1e9)
             yield "\tnull%s [shape=point];" % r
-            yield "\t%s -> null%s;" % (self.data, r)
-        if self.right is not None:
-            yield "\t%s -> %s;" % (self.data, self.right.data)
-            for i in self.right._get_dot():
+            yield "\t%s -> null%s;" % (self.value, r)
+        if self.greater is not None:
+            yield "\t%s -> %s;" % (self.value, self.greater.value)
+            for i in self.greater._get_dot():
                 yield
-        elif self.left is not None:
+        elif self.lesser is not None:
             r = random.randint(0, 1e9)
             yield "\tnull%s [shape=point];" % r
-            yield "\t%s -> null%s;" % (self.data, r)
+            yield "\t%s -> null%s;" % (self.value, r)
 
 if __name__ == '__main__':
     pass
