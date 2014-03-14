@@ -76,13 +76,13 @@ class TraversalTests(unittest.TestCase):
             outp.append(i)
         self.assertEqual(outp, [4, 5, 6, 10, 14, 15, 16])
 
-    def test_pre_order(self):
+    def test_post_order(self):
         outp = []
         for i in self.tree.pre_order():
             outp.append(i)
         self.assertEqual(outp, [4, 6, 5, 14, 16, 15, 10])
 
-    def test_post_order(self):
+    def test_pre_order(self):
         outp = []
         for i in self.tree.post_order():
             outp.append(i)
@@ -93,6 +93,32 @@ class TraversalTests(unittest.TestCase):
         for i in self.tree.breadth_first():
             outp.append(i)
         self.assertEqual(outp, [10, 5, 15, 4, 6, 14, 16])
+
+
+class DeleteTests(unittest.TestCase):
+
+    def setUp(self):
+        self.tree = Tree(10)
+        for i in [5, 15, 4, 6, 14, 16]:
+            self.tree.insert(i)
+
+    def test_delete_two_child(self):
+        self.assertTrue(self.tree.contains(5))
+        self.tree.delete(5)
+        self.assertFalse(self.tree.contains(5))
+        self.assertTrue(self.tree.contains(4))
+
+    def test_delete_single_child(self):
+        self.tree.insert(3)
+        self.assertTrue(self.tree.contains(4))
+        self.tree.delete(4)
+        self.assertFalse(self.tree.contains(4))
+        self.assertTrue(self.tree.contains(3))
+
+    def test_delete_no_child(self):
+        self.assertTrue(self.tree.contains(4))
+        self.tree.delete(4)
+        self.assertFalse(self.tree.contains(4))
 
 
 if __name__ == '__main__':

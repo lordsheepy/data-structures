@@ -77,7 +77,7 @@ class BinaryTree(object):
             for i in self.greater.in_order():
                     yield i
 
-    def post_order(self):
+    def pre_order(self):
         if self.value is not None:
             yield self.value
         if self.lesser is not None:
@@ -87,7 +87,7 @@ class BinaryTree(object):
             for i in self.greater.post_order():
                     yield i
 
-    def pre_order(self):
+    def post_order(self):
         if self.lesser is not None:
             for i in self.lesser.pre_order():
                     yield i
@@ -107,6 +107,32 @@ class BinaryTree(object):
                 inp.append(outp.lesser)
             if outp.greater is not None:
                 inp.append(outp.greater)
+
+    def delete(self, val):
+
+        def _find_parent(self, val):
+            if self.lesser.value == val:
+                pass
+
+        def _find(self, val):
+            if self.value == val:
+                return self
+            elif self.value > val:
+                return _find(self.greater)
+            elif self.value < val:
+                return _find(self.lesser)
+
+        def _del_2(val):
+            pass
+
+        target = _find(val)
+        if target.lesser is not None and target.greater is not None:
+            target._del_2(val)
+        if target.lesser is not None or target.greater is not None:
+            pass
+        else:
+
+
 
     def get_dot(self):
         """return the tree with root 'self' as a dot graph for visualization"""
