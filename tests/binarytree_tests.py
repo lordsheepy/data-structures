@@ -99,7 +99,7 @@ class DeleteTests(unittest.TestCase):
 
     def setUp(self):
         self.tree = Tree(10)
-        for i in [5, 15, 4, 6, 14, 16]:
+        for i in [5, 15, 4, 6, 14, 17]:
             self.tree.insert(i)
 
     def test_delete_two_child(self):
