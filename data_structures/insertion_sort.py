@@ -2,16 +2,6 @@
 
 
 def insertion_sort(unsort):
-    # if len(unsort) <= 1:
-    #     return unsort
-    # sort = []
-    # sort.append(unsort.pop(0))
-    # for i in range(len(unsort)-1):
-    #     current = unsort.pop([i])
-    #     for i in range(len(unsort)-1):
-    #         if current <= i:
-    #             sort.insert(i, current)
-    #             break
 
     for i in range(len(unsort)):
         # import pdb; pdb.set_trace()
@@ -24,6 +14,17 @@ def insertion_sort(unsort):
     return unsort
 
 
-
 if __name__ == '__main__':
-    pass
+    best_case, worst_case = [], []
+    for i in xrange(16384):
+        best_case.append(i)
+        worst_case.append(16383 - i)
+    import time
+    t1 = time.time()
+    insertion_sort(best_case)
+    t2 = time.time()
+    print "Best case: %f seconds" % (t2 - t1)
+    t3 = time.time()
+    insertion_sort(worst_case)
+    t4 = time.time()
+    print "Worst case: %f seconds" % (t4 - t3)

@@ -29,3 +29,9 @@ http://stackoverflow.com/questions/19191707/printing-max-depth-in-binary-search-
 Helped me wrap my head around the depth function. Otherwise, the recursion came
 relatively easily. Tests for each function were written, then the function
 itself. Will add timing tests later tonight.
+
+Insertion_sort
+--------------
+Sorts a list in place. Credit @markcharyk his code helped me understand how to
+get things moving correctly. Tests against presorted, empty, single, and unsorted
+lists. Slow but effective.
