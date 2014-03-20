@@ -6,19 +6,15 @@ def quick_sort(unsorted, method='median'):
         return unsorted
 
     piv = pivot(unsorted, method=method)
-    unsorted.remove(piv)
-    lesser = []
-    greater = []
-    for i in unsorted:
-        if i <= piv:
-            lesser.append(i)
-        else:
-            greater.append(i)
+
+    lesser = [i for i in unsorted if i < piv]
+    greater = [i for i in unsorted if i > piv]
+    piv_list = [i for i in unsorted if i == piv]
 
     less = quick_sort(lesser, method=method)
     great = quick_sort(greater, method=method)
 
-    less.append(piv)
+    less.extend(piv_list)
     less.extend(great)
     return less
 
