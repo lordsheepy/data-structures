@@ -4,7 +4,6 @@
 def insertion_sort(unsort):
 
     for i in range(len(unsort)):
-        # import pdb; pdb.set_trace()
         current = unsort[i]
         itercount = i
         while current < unsort[itercount - 1] and itercount > 0:

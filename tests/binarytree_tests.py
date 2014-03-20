@@ -78,13 +78,13 @@ class TraversalTests(unittest.TestCase):
 
     def test_post_order(self):
         outp = []
-        for i in self.tree.pre_order():
+        for i in self.tree.post_order():
             outp.append(i)
         self.assertEqual(outp, [4, 6, 5, 14, 16, 15, 10])
 
     def test_pre_order(self):
         outp = []
-        for i in self.tree.post_order():
+        for i in self.tree.pre_order():
             outp.append(i)
         self.assertEqual(outp, [10, 5, 4, 6, 15, 14, 16])
 

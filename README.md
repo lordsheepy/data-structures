@@ -30,7 +30,14 @@ Helped me wrap my head around the depth function. Otherwise, the recursion came
 relatively easily. Tests for each function were written, then the function
 itself. Will add timing tests later tonight.
 
-Insertion_sort
+insertion_sort
 --------------
 Sorts a list in place. Unittests against presorted, empty, single, and unsorted
 lists. Slow but effective. Credit @markcharyk for his best and worst case tests.
+
+merge_sort
+----------
+Sorts a list by recursively splitting into lists of length one and pulling those
+together incrementally. Code structure comes from Wikipedia's explanation of
+merge sort, the ifmain timing tests are courtesy of @markcharyk. Many thanks to
+him for doing the hard work of figuring out the worst case scenario.

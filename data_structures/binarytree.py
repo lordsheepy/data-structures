@@ -108,29 +108,29 @@ class BinaryTree(object):
             if outp.greater is not None:
                 inp.append(outp.greater)
 
-    def delete(self, val):
+    # def delete(self, val):
 
-        def _find_parent(self, val):
-            if self.lesser.value == val:
-                pass
+    #     def _find_parent(self, val):
+    #         if self.lesser.value == val:
+    #             pass
 
-        def _find(self, val):
-            if self.value == val:
-                return self
-            elif self.value > val:
-                return _find(self.greater)
-            elif self.value < val:
-                return _find(self.lesser)
+    #     def _find(self, val):
+    #         if self.value == val:
+    #             return self
+    #         elif self.value > val:
+    #             return _find(self.greater)
+    #         elif self.value < val:
+    #             return _find(self.lesser)
 
-        def _del_2(val):
-            pass
+    #     def _del_2(val):
+    #         pass
 
-        target = _find(val)
-        if target.lesser is not None and target.greater is not None:
-            target._del_2(val)
-        if target.lesser is not None or target.greater is not None:
-            pass
-        else:
+    #     target = _find(val)
+    #     if target.lesser is not None and target.greater is not None:
+    #         target._del_2(val)
+    #     if target.lesser is not None or target.greater is not None:
+    #         pass
+    #     else:
 
 
 
