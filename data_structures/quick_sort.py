@@ -23,10 +23,7 @@ def pivot(list_inp, method='median'):
     """Defines a pivot point for quicksort, method can be ['first', 'last',
     'median']"""
     if method.lower() == 'median':
-        med_list = []
-        med_list.append(list_inp[0])
-        med_list.append(list_inp[-1])
-        med_list.append(list_inp[len(list_inp) // 2])
+        med_list = [list_inp[0], list_inp[-1], list_inp[len(list_inp) // 2]]
         med_list.remove(max(med_list))
         med_list.remove(min(med_list))
         return med_list[0]
