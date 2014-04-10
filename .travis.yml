@@ -9,3 +9,4 @@ install:
 script:
     - python tests/merge_sort_tests.py
     - python tests/quick_sort_tests.py
+    - python tests/radix_sort_tests.py
