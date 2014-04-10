@@ -11,12 +11,12 @@ def quick_sort(unsorted, method='median'):
     greater = [i for i in unsorted if i > piv]
     piv_list = [i for i in unsorted if i == piv]
 
-    less = quick_sort(lesser, method=method)
-    great = quick_sort(greater, method=method)
+    lesser = quick_sort(lesser, method=method)
+    greater = quick_sort(greater, method=method)
 
-    less.extend(piv_list)
-    less.extend(great)
-    return less
+    lesser.extend(piv_list)
+    lesser.extend(greater)
+    return lesser
 
 
 def pivot(list_inp, method='median'):
